@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+nav {
+    background-image: url("../img/banner.jpg");
+    background-size: ;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    /* asegura que quede encima de lo demas */
+    z-index: 1000;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    transition: all 0.3s ease;
+}
+
+/* Por defecto NO hay overlay */
+nav::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    /* transparente al inicio */
+    backdrop-filter: none;
+    /* sin desenfoque */
+    -webkit-backdrop-filter: none;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    z-index: -1;
+}
+
+
+/* Cuando hay scroll, aplicamos el vidrio */
+
+
+nav.scrolled::before {
+    background-color: rgba(255, 255, 255, 0.036);
+    /* capa vidrio */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+
+nav img {
+    width: 80px;
+}
+
+.menu {
+
+    display: flex;
+    /* separa el logo a la izq y los links a la derecha */
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.menu li {
+    display: flex;
+
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.info {
+    height: calc(100vh - 80px);
+    /* ocupa el resto */
+}
+
+.info img {
+    width: 100vmax;
+}
+
+.info p {
+    margin-top: 6rem;
+    font-weight: 700;
+    font-size: xx-large;
+    color: #734313;
+}
