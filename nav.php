@@ -4,9 +4,8 @@
             <a href="index.php"><img src="./img/coffeeshop.png" alt="Logo empresa" srcset=""></a>
             <li>
                 <ul><a href="#">INICIO</a></ul>
-                <ul><a href="#">PRODUCTOS</a></ul>
-                <ul><a href="#">NOSOTROS</a></ul>
-                <ul><a href="#">INGRESAR</a></ul>
+                <ul><a href="#productos">PRODUCTOS</a></ul>
+                <ul><a href="./login.php">INGRESAR</a></ul>
             </li>
         </div>
     </nav>

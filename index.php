@@ -1,30 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
-</head>
+<?php
+include "head.php";
+?>
 
 <body>
 
     <?php
-    include "banner.php";
+    include "nav.php";
     ?>
 
 
     <section class="info">
-        <img src="./img/background1.jpeg" alt="" srcset="">
-        <p>
-            LOS SABORES DEL MUNDO AL ALCANCE DE TU MANOS
-        </p>
+        <div class="img_info">
+            <img src="./img/cafe02.jpg" alt="" srcset="">
+        </div>
     </section>
+    <section class="about">
+        <div class="card">
 
+            <p>En Coffee Shop creemos que una buena taza de café puede transformar cualquier momento del día. Por eso nos dedicamos a ofrecer café de la más alta calidad, cuidadosamente seleccionado y presentado en diferentes formatos para adaptarse a tu gusto y estilo de vida.</p>
 
+            <p>Nuestro compromiso es brindarte una experiencia única, desde el aroma que despierta tus sentidos hasta el sabor que acompaña tus mejores momentos. Ya sea que prefieras café en grano, molido o en cápsulas, tenemos la presentación ideal para vos.</p>
 
+            <p>Más que una tienda, somos amantes del café. Queremos que cada sorbo sea especial y que disfrutes de la calidez y la energía que solo un buen café puede darte.</p>
 
+            <h2><span style="color: #734313;">COFFEE</span> <span style="color: #aa8c36;">SHOP</span></h2>
+        </div>
+        <div class="img_about">
+            <img src="./img/mozo_cafe.jpg" alt="mozo sirviendo cafe">
+
+        </div>
+    </section>
+    <section>
+        <div class="productos" id="productos">
+            <span class="titulo"><span style="color: #734313;">NUESTROS</span> <span style="color: #f2f2f2f2;">PRODUCTOS</span></span>
+        </div>
+    </section>
+    <section class="tarjetas_productos">
+        <div class="prod_card">
+
+            <img src="./img/background1.jpeg" alt="" srcset="">
+
+            <h2>Titurlo producto</h2>
+            <p>Descripcion</p>
+            <!-- <div class="precio">$249.99</div>
+             <button class="btn-comprar">Comprar ahora</button> -->
+
+        </div>
+        <div class="prod_card">
+            <img src="./img/background1.jpeg" alt="" srcset="">
+            <h2>Titurlo producto</h2>
+            <p>Descripcion</p>
+            <!-- <div class="precio">$249.99</div>
+             <button class="btn-comprar">Comprar ahora</button> -->
+
+        </div>
+        <div class="prod_card">
+            <img src="./img/coffeeshop.png" alt="" srcset="">
+            <h2>Titurlo producto</h2>
+            <p>Descripcion</p>
+            <!--  <div class="precio">$249.99</div>
+             <button class="btn-comprar">Comprar ahora</button> -->
+
+        </div>
+        <div class="prod_card">
+            <img src="./img/background1.jpeg" alt="" srcset="">
+            <h2>Titurlo producto</h2>
+            <p>Descripcion</p>
+            <!--  <div class="precio">$249.99</div>
+             <button class="btn-comprar">Comprar ahora</button> -->
+
+        </div>
+        <div class="prod_card">
+            <img src="./img/background1.jpeg" alt="" srcset="">
+            <h2>Titurlo producto</h2>
+            <p>Descripcion</p>
+            <!-- <div class="precio">$249.99</div>
+             <button class="btn-comprar">Comprar ahora</button> -->
+
+        </div>
+        <div class="prod_card">
+
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Altavoz Bluetooth">
+
+            <h2>Altavoz Bluetooth</h2>
+            <p>Lleva tu música a todas partes con este potente altavoz Bluetooth. Sonido cristalino y diseño resistente al agua.</p>
+            <!-- <div class="precio">$129.99</div>
+             <button class="btn-comprar">Comprar ahora</button> -->
+        </div>
+    </section>
+    <?php
+    include "footer.php";
+    ?>
 </body>
 
 <script>
@@ -35,6 +101,7 @@
         } else {
             nav.classList.remove("scrolled");
         }
+
     });
 </script>
 
