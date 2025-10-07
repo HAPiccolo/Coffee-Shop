@@ -259,6 +259,28 @@ nav img {
     margin-bottom: 2rem;
 }
 
+
+
+/* ==================================  */
+/*            UBICACION                */
+/* ==================================  */
+
+#ubicacion {
+    margin-top: 2rem;
+}
+
+#ubicacion h1 {
+    font-weight: 900;
+    color: #5a3410;
+    text-align: center;
+}
+
+#ubicacion p {
+    text-align: center;
+    color: #734313
+}
+
+
 /* ================================== */
 /*             FOOTER                 */
 /* ================================== */
