@@ -1,9 +1,10 @@
+<!-- importacion del head -->
 <?php
 include "head.php";
 ?>
 
 <body>
-
+    <!-- importa el nav -->
     <?php
     include "nav.php";
     ?>
@@ -88,6 +89,33 @@ include "head.php";
              <button class="btn-comprar">Comprar ahora</button> -->
         </div>
     </section>
+
+    <section id="nosotros_banner">
+        <span class="titulo"><span style="color: #fff;">SOBRE </span><span style="color: #aa8c36;">NOSOTROS</span> </span>
+
+
+    </section>
+    <section id="nosotros">
+        <div class="about">
+            <div class="card">
+                <h3><span style="color: #734313;">QUIENES</span> <span style="color: #aa8c36;">SOMOS</span></h3>
+                <br>
+                En Coffee Shop somos un equipo apasionado por el café y la calidad. Nacimos con la idea de acercar los mejores granos del mundo
+                a las manos de quienes disfrutan cada detalle de una buena taza. Trabajamos con tostadores locales y productores comprometidos con
+                prácticas sustentables para ofrecer un producto fresco, auténtico y con identidad.
+            </div>
+
+            <div class="card">
+                <h3><span style="color: #734313;">NUESTRA</span> <span style="color: #aa8c36;">FILOSOFIA</span></h3>
+                <br>
+                Creemos que el café no es solo una bebida, sino una experiencia que conecta a las personas.
+                Por eso cuidamos cada paso del proceso: desde la selección del grano hasta el momento en que llega a tu taza.
+                Valoramos la transparencia, la sustentabilidad y el respeto por quienes hacen posible cada cosecha.
+            </div>
+        </div>
+    </section>
+
+    <!-- importacion del footer -->
     <?php
     include "footer.php";
     ?>
