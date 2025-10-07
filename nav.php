@@ -6,7 +6,7 @@
                 <ul><a href="#">INICIO</a></ul>
                 <ul><a href="#productos">PRODUCTOS</a></ul>
                 <ul><a href="#nosotros_banner">NOSOTROS</a></ul>
-                <ul><a href="./login.php">INGRESAR</a></ul>
+                <!-- <ul><a href="./login.php">INGRESAR</a></ul> -->
             </li>
         </div>
     </nav>
