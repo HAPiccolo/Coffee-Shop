@@ -39,52 +39,52 @@ include "head.php";
     <section class="tarjetas_productos">
         <div class="prod_card">
 
-            <img src="./img/background1.jpeg" alt="" srcset="">
+            <img src="./img/productos/prod1.webp" alt="imagen del producto" srcset="">
 
-            <h2>Titurlo producto</h2>
-            <p>Descripcion</p>
+            <h2>Capsulas Starbucks</h2>
+            <p>18 capsulas con el sabor mas intenso de STARBUCKS</p>
             <!-- <div class="precio">$249.99</div>
              <button class="btn-comprar">Comprar ahora</button> -->
 
         </div>
         <div class="prod_card">
-            <img src="./img/background1.jpeg" alt="" srcset="">
-            <h2>Titurlo producto</h2>
-            <p>Descripcion</p>
+            <img src="./img/productos/prod2.webp" alt="imagen del producto" srcset="">
+            <h2>Drip Coffee Brasil Minas Gerais</h2>
+            <p>Este pack contiene 5 sobres de 10g con Café de Especialidad Brasil Intenso</p>
             <!-- <div class="precio">$249.99</div>
              <button class="btn-comprar">Comprar ahora</button> -->
 
         </div>
         <div class="prod_card">
-            <img src="./img/coffeeshop.png" alt="" srcset="">
-            <h2>Titurlo producto</h2>
-            <p>Descripcion</p>
+            <img src="./img/productos/prod3.webp" alt="imagen del producto" srcset="">
+            <h2>Café de Especialidad Colombiana Bourbon</h2>
+            <p>Café con notas de frutos tropicales, miel de caña y breva.</p>
             <!--  <div class="precio">$249.99</div>
              <button class="btn-comprar">Comprar ahora</button> -->
 
         </div>
         <div class="prod_card">
-            <img src="./img/background1.jpeg" alt="" srcset="">
-            <h2>Titurlo producto</h2>
-            <p>Descripcion</p>
+            <img src="./img/productos/prod4.webp" alt="imagen del producto" srcset="">
+            <h2>Café Molido Brasil 250g</h2>
+            <p>Café tipo Arabica de cuerpo medio Acidulado leve</p>
             <!--  <div class="precio">$249.99</div>
              <button class="btn-comprar">Comprar ahora</button> -->
 
         </div>
         <div class="prod_card">
-            <img src="./img/background1.jpeg" alt="" srcset="">
-            <h2>Titurlo producto</h2>
-            <p>Descripcion</p>
+            <img src="./img/productos/prod5.webp" alt="" srcset="">
+            <h2>Café Molido Tipo Italiano 250g</h2>
+            <p>Tostado natural de acidez media y aroma muy pronunciado</p>
             <!-- <div class="precio">$249.99</div>
              <button class="btn-comprar">Comprar ahora</button> -->
 
         </div>
         <div class="prod_card">
 
-            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Altavoz Bluetooth">
+            <img src="./img/productos/prod6.webp" alt="imagen del producto">
 
-            <h2>Altavoz Bluetooth</h2>
-            <p>Lleva tu música a todas partes con este potente altavoz Bluetooth. Sonido cristalino y diseño resistente al agua.</p>
+            <h2>Combo 80 capsulas</h2>
+            <p>80 capsulas compatibles con maquinas NESPRESSO</p>
             <!-- <div class="precio">$129.99</div>
              <button class="btn-comprar">Comprar ahora</button> -->
         </div>
@@ -117,9 +117,9 @@ include "head.php";
 
     <section id="ubicacion">
         <h1>ENCONTRANOS</h1>
-        <p>Visitanos en nuestra cafetería, te esperamos con el mejor café y un ambiente cálido.</p>
+        <p>Visitanos en nuestra cafetería ubicada en "La Rioja y Pellegrini", te esperamos con el mejor café y un ambiente cálido.</p>
         <br>
-        <div style="border:0; width:100%; height:400px;">
+        <div style="border:0; width:100%; height:400px; ">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1353.8461855310036!2d-58.83727683620389!3d-27.4654047690316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1759853049170!5m2!1ses-419!2sar" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
