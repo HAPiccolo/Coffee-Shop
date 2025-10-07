@@ -280,6 +280,33 @@ nav img {
     color: #734313
 }
 
+/* ================================== */
+/*         BOTON AL INICIO            */
+/* ================================== */
+#btnTop {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #6b4f4f;
+    /* color tipo café */
+    color: white;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#btnTop:hover {
+    background-color: #8b5e3c;
+    transform: scale(1.1);
+}
 
 /* ================================== */
 /*             FOOTER                 */

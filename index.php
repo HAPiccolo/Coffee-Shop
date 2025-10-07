@@ -128,8 +128,36 @@ include "head.php";
     <?php
     include "footer.php";
     ?>
+
+    <!-- Boton al inicio -->
+    <button id="btnTop" title="Volver arriba">⬆</button>
 </body>
 
+<!-- Script del boton que permite subir al inicio de la pagina -->
+
+<script>
+    // Referencia al botón
+    const btnTop = document.getElementById("btnTop");
+
+    // Mostrar el botón cuando el usuario hace scroll
+    window.onscroll = function() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            btnTop.style.display = "block";
+        } else {
+            btnTop.style.display = "none";
+        }
+    };
+
+    // Al hacer clic, sube suavemente al inicio
+    btnTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
+
+<!-- script que hace glass al nav -->
 <script>
     window.addEventListener("scroll", function() {
         const nav = document.querySelector("nav");
