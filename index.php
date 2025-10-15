@@ -38,9 +38,9 @@ include "head.php";
     </section>
     <section class="tarjetas_productos">
         <div class="prod_card">
-
-            <img src="./img/productos/prod1.webp" alt="imagen del producto" srcset="">
-
+            <div class="prod_img">
+                <a href="./img/productos/prod1.webp"><img src="./img/productos/prod1.jpg" alt="imagen del producto" srcset=""></a>
+            </div>
             <h2>Capsulas Starbucks</h2>
             <p>18 capsulas con el sabor mas intenso de STARBUCKS</p>
             <!-- <div class="precio">$249.99</div>
@@ -48,7 +48,9 @@ include "head.php";
 
         </div>
         <div class="prod_card">
-            <img src="./img/productos/prod2.webp" alt="imagen del producto" srcset="">
+            <div class="prod_img">
+                <a href="./img/productos/prod2.jpg"> <img src="./img/productos/prod2.jpg" alt="imagen del producto" srcset=""></a>
+            </div>
             <h2>Drip Coffee Brasil Minas Gerais</h2>
             <p>Este pack contiene 5 sobres de 10g con Café de Especialidad Brasil Intenso</p>
             <!-- <div class="precio">$249.99</div>
@@ -56,7 +58,9 @@ include "head.php";
 
         </div>
         <div class="prod_card">
-            <img src="./img/productos/prod3.webp" alt="imagen del producto" srcset="">
+            <div class="prod_img">
+                <a href="./img/productos/prod3.webp"><img src="./img/productos/prod3.jpg" alt="imagen del producto" srcset=""></a>
+            </div>
             <h2>Café de Especialidad Colombiana Bourbon</h2>
             <p>Café con notas de frutos tropicales, miel de caña y breva.</p>
             <!--  <div class="precio">$249.99</div>
@@ -64,7 +68,9 @@ include "head.php";
 
         </div>
         <div class="prod_card">
-            <img src="./img/productos/prod4.webp" alt="imagen del producto" srcset="">
+            <div class="prod_img">
+                <a href="./img/productos/prod4.webp"> <img src="./img/productos/prod4.jpg" alt="imagen del producto" srcset=""></a>
+            </div>
             <h2>Café Molido Brasil 250g</h2>
             <p>Café tipo Arabica de cuerpo medio Acidulado leve</p>
             <!--  <div class="precio">$249.99</div>
@@ -72,7 +78,9 @@ include "head.php";
 
         </div>
         <div class="prod_card">
-            <img src="./img/productos/prod5.webp" alt="" srcset="">
+            <div class="prod_img">
+                <a href="./img/productos/prod5.webp"><img src="./img/productos/prod5.jpg" alt="" srcset=""></a>
+            </div>
             <h2>Café Molido Tipo Italiano 250g</h2>
             <p>Tostado natural de acidez media y aroma muy pronunciado</p>
             <!-- <div class="precio">$249.99</div>
@@ -80,9 +88,9 @@ include "head.php";
 
         </div>
         <div class="prod_card">
-
-            <img src="./img/productos/prod6.webp" alt="imagen del producto">
-
+            <div class="prod_img">
+                <a href="./img/productos/prod6.webp"> <img src="./img/productos/prod6.jpg" alt="imagen del producto"></a>
+            </div>
             <h2>Combo 80 capsulas</h2>
             <p>80 capsulas compatibles con maquinas NESPRESSO</p>
             <!-- <div class="precio">$129.99</div>
@@ -139,7 +147,7 @@ include "head.php";
     // Referencia al botón
     const btnTop = document.getElementById("btnTop");
 
-    // Mostrar el botón cuando el usuario hace scroll
+    // Mostrar el botón cuando se hace scroll
     window.onscroll = function() {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
             btnTop.style.display = "block";

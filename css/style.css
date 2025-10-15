@@ -189,17 +189,22 @@ nav img {
 
 }
 
+.prod_img {
+    width: auto;
+    height: 60%;
+    text-align: center;
+}
 
+.prod_img img {
 
-.prod_card img {
     margin-top: 1rem;
     border-radius: 5px;
-    width: 90%;
-    height: 50%;
+    width: 95%;
+    height: 90%;
     transition: transform 0.5s ease;
 }
 
-.prod_card:hover img {
+.prod_img:hover img {
     transform: scale(1.05);
 }
 
