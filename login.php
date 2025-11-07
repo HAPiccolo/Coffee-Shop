@@ -1,4 +1,5 @@
 <?php
+include "./database.php";
 include "./head.php";
 ?>
 <style>
@@ -22,6 +23,39 @@ include "./head.php";
 
                 </div>
             </form>
+            <div class="mensaje">
+                <?php
+                session_start();
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $nombre = trim($_POST['usuario']);
+                    $password = trim($_POST['password']);
+
+                    $sql = "SELECT * FROM usuarios WHERE nombre = :nombre";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute(['nombre' => $nombre]);
+                    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if ($usuario && password_verify($password, $usuario['password'])) {
+                        // --- Guardar datos en sesión ---
+                        $_SESSION['usuario_id'] = $usuario['id'];
+                        $_SESSION['usuario_nombre'] = $usuario['nombre'];
+                        $_SESSION['usuario_rol'] = $usuario['rol'];
+
+                        // --- Redirigir según el rol ---
+                        if ($usuario['rol'] == 1) {
+                            header("Location: ./dashboard.php"); // panel del admin
+                        } //else {
+                        //  header("Location: u.php"); // panel del usuario normal
+                        //}
+                        //exit;
+                    } else {
+                        echo "<p>❌ Usuario o contraseña incorrectos.</p>";
+                    }
+                }
+                ?>
+
+            </div>
         </div>
 
     </div>

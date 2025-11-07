@@ -201,7 +201,7 @@ nav img {
     border-radius: 5px;
     width: 95%;
     height: 90%;
-    transition: transform 0.5s ease;
+    < transition: transform 0.5s ease;
 }
 
 .prod_img:hover img {
@@ -445,6 +445,10 @@ footer {
     ;
 }
 
+.mensaje {
+    margin-top: 1rem;
+    text-align: center;
+}
 
 
 /* ================================== */
