@@ -13,7 +13,7 @@ include "./head.php";
         color: #ffff;
     }
 
-    .error {
+    .mjs_error {
         margin-top: 30vh;
         margin-left: 5rem;
     }
@@ -23,7 +23,7 @@ include "./head.php";
     <?php
     include "./nav.php";
     ?>
-    <div class="error">
+    <div class="mjs_error">
         <h1>NO TIENE PERMISO </h1>
         <h1> A ESTA SECCION !!!</h1>
     </div>

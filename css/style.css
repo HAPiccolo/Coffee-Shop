@@ -201,7 +201,7 @@ nav img {
     border-radius: 5px;
     width: 95%;
     height: 90%;
-    < transition: transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .prod_img:hover img {
@@ -449,6 +449,99 @@ footer {
     margin-top: 1rem;
     text-align: center;
 }
+
+/* ================================== */
+/*             DASHBOARD              */
+/* ================================== */
+
+
+
+.botonesAccion {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.botonesAccion button {
+    background-color: #5a3410;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.botonesAccion button:hover {
+    cursor: pointer;
+    background-color: #8b5e3c;
+}
+
+
+.contenido form {
+
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+form .add_productos {
+    width: 500px;
+}
+
+/* --- AQUÍ ESTÁN LOS CAMBIOS --- */
+.add_productos {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 3rem;
+    box-shadow: 0px 5px 32px 0 #734313;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.add_productos input {
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    padding: 10px;
+    /* Un poco más de padding para mejor usabilidad */
+    border: 1px solid #ccc;
+}
+
+.add_productos input#btn_guardar {
+    background-color: #5a3410;
+    color: #fff;
+    border: none;
+    /* Quitamos el borde del botón */
+    cursor: pointer;
+}
+
+.add_productos input#btn_guardar:hover {
+    background-color: #8b5e3c;
+}
+
+/* ===================================*/
+/*               MESAJES              */
+/* ===================================*/
+
+.mensaje {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
 
 
 /* ================================== */

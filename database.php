@@ -1,4 +1,5 @@
 <?php
+// Archivo: database.php
 $host = 'localhost';
 $dbname = 'cafetera';
 $username = 'root';
@@ -25,7 +26,8 @@ CREATE TABLE IF NOT EXISTS productos (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     nombre_producto VARCHAR(255) NOT NULL,
     descripcion VARCHAR(255),
-    precio VARCHAR(255)
+    precio VARCHAR(255),
+    imagen VARCHAR(1000)
 )";
 
     // Ejecuta la creacion de la segunda tabla

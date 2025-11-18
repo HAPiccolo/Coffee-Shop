@@ -1,5 +1,8 @@
 <!-- importacion del head -->
 <?php
+// CAMBIO 1: Incluir la conexión a la base de datos
+include "database.php";
+
 include "head.php";
 ?>
 
@@ -36,67 +39,40 @@ include "head.php";
             <span class="titulo"><span style="color: #734313;">NUESTROS</span> <span style="color: #f2f2f2f2;">PRODUCTOS</span></span>
         </div>
     </section>
+
+    <!-- CAMBIO 2: Reemplazar toda esta sección con código PHP -->
     <section class="tarjetas_productos">
-        <div class="prod_card">
-            <div class="prod_img">
-                <a href="./img/productos/prod1.webp"><img src="./img/productos/prod1.jpg" alt="imagen del producto" srcset=""></a>
-            </div>
-            <h2>Capsulas Starbucks</h2>
-            <p>18 capsulas con el sabor mas intenso de STARBUCKS</p>
-            <!-- <div class="precio">$249.99</div>
-             <button class="btn-comprar">Comprar ahora</button> -->
+        <?php
+        // 1. Preparamos y ejecutamos la consulta para obtener todos los productos
+        $sql = "SELECT nombre_producto, descripcion, precio, imagen FROM productos";
+        $stmt = $pdo->query($sql);
 
-        </div>
-        <div class="prod_card">
-            <div class="prod_img">
-                <a href="./img/productos/prod2.jpg"> <img src="./img/productos/prod2.jpg" alt="imagen del producto" srcset=""></a>
-            </div>
-            <h2>Drip Coffee Brasil Minas Gerais</h2>
-            <p>Este pack contiene 5 sobres de 10g con Café de Especialidad Brasil Intenso</p>
-            <!-- <div class="precio">$249.99</div>
-             <button class="btn-comprar">Comprar ahora</button> -->
+        // 2. Recorremos cada producto que encontramos en la base de datos
+        while ($producto = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-        </div>
-        <div class="prod_card">
-            <div class="prod_img">
-                <a href="./img/productos/prod3.webp"><img src="./img/productos/prod3.jpg" alt="imagen del producto" srcset=""></a>
-            </div>
-            <h2>Café de Especialidad Colombiana Bourbon</h2>
-            <p>Café con notas de frutos tropicales, miel de caña y breva.</p>
-            <!--  <div class="precio">$249.99</div>
-             <button class="btn-comprar">Comprar ahora</button> -->
+            // 3. Definimos la ruta de la imagen. Si no hay imagen, usamos una por defecto.
+            //    (Crea una imagen llamada 'placeholder.jpg' en tu carpeta /img)
+            $ruta_imagen = !empty($producto['imagen']) ? 'uploads/productos/' . htmlspecialchars($producto['imagen']) : './img/placeholder.jpg';
+        ?>
+            <div class="prod_card">
+                <div class="prod_img">
+                    <a href="<?php echo $ruta_imagen; ?>">
+                        <img src="<?php echo $ruta_imagen; ?>" alt="imagen del producto <?php echo htmlspecialchars($producto['nombre_producto']); ?>" srcset="">
+                    </a>
+                </div>
+                <h2><?php echo htmlspecialchars($producto['nombre_producto']); ?></h2>
+                <p><?php echo htmlspecialchars($producto['descripcion']); ?></p>
 
-        </div>
-        <div class="prod_card">
-            <div class="prod_img">
-                <a href="./img/productos/prod4.webp"> <img src="./img/productos/prod4.jpg" alt="imagen del producto" srcset=""></a>
-            </div>
-            <h2>Café Molido Brasil 250g</h2>
-            <p>Café tipo Arabica de cuerpo medio Acidulado leve</p>
-            <!--  <div class="precio">$249.99</div>
-             <button class="btn-comprar">Comprar ahora</button> -->
+                <!-- CAMBIO 3: Descomenté y dinamicicé el precio y el botón -->
+                <!--v class="precio">$<?php echo htmlspecialchars($producto['precio']); ?></div> -->
+                <!-- <button class="btn-comprar">Comprar ahora</button> -->
 
-        </div>
-        <div class="prod_card">
-            <div class="prod_img">
-                <a href="./img/productos/prod5.webp"><img src="./img/productos/prod5.jpg" alt="" srcset=""></a>
             </div>
-            <h2>Café Molido Tipo Italiano 250g</h2>
-            <p>Tostado natural de acidez media y aroma muy pronunciado</p>
-            <!-- <div class="precio">$249.99</div>
-             <button class="btn-comprar">Comprar ahora</button> -->
-
-        </div>
-        <div class="prod_card">
-            <div class="prod_img">
-                <a href="./img/productos/prod6.webp"> <img src="./img/productos/prod6.jpg" alt="imagen del producto"></a>
-            </div>
-            <h2>Combo 80 capsulas</h2>
-            <p>80 capsulas compatibles con maquinas NESPRESSO</p>
-            <!-- <div class="precio">$129.99</div>
-             <button class="btn-comprar">Comprar ahora</button> -->
-        </div>
+        <?php
+        } // Cerramos el while
+        ?>
     </section>
+    <!-- FIN DEL CAMBIO 2 -->
 
     <section id="nosotros_banner">
         <span class="titulo"><span style="color: #fff;">SOBRE </span><span style="color: #aa8c36;">NOSOTROS</span> </span>
