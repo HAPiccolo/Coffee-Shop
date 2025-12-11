@@ -1,6 +1,5 @@
 <!-- importacion del head -->
 <?php
-// CAMBIO 1: Incluir la conexión a la base de datos
 include "database.php";
 
 include "head.php";
@@ -40,17 +39,16 @@ include "head.php";
         </div>
     </section>
 
-    <!-- CAMBIO 2: Reemplazar toda esta sección con código PHP -->
     <section class="tarjetas_productos">
         <?php
-        // 1. Preparamos y ejecutamos la consulta para obtener todos los productos
+        // Preparamos y ejecutamos la consulta para obtener todos los productos
         $sql = "SELECT nombre_producto, descripcion, precio, imagen FROM productos";
         $stmt = $pdo->query($sql);
 
-        // 2. Recorremos cada producto que encontramos en la base de datos
+        // Recorremos cada producto que encontramos en la base de datos
         while ($producto = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-            // 3. Definimos la ruta de la imagen. Si no hay imagen, usamos una por defecto.
+            // Definimos la ruta de la imagen. Si no hay imagen, usamos una por defecto.
             //    (Crea una imagen llamada 'placeholder.jpg' en tu carpeta /img)
             $ruta_imagen = !empty($producto['imagen']) ? 'uploads/productos/' . htmlspecialchars($producto['imagen']) : './img/placeholder.jpg';
         ?>
@@ -62,8 +60,8 @@ include "head.php";
                 </div>
                 <h2><?php echo htmlspecialchars($producto['nombre_producto']); ?></h2>
                 <p><?php echo htmlspecialchars($producto['descripcion']); ?></p>
+                <!-- Archivo: add_product.php -->
 
-                <!-- CAMBIO 3: Descomenté y dinamicicé el precio y el botón -->
                 <!--v class="precio">$<?php echo htmlspecialchars($producto['precio']); ?></div> -->
                 <!-- <button class="btn-comprar">Comprar ahora</button> -->
 
@@ -72,7 +70,6 @@ include "head.php";
         } // Cerramos el while
         ?>
     </section>
-    <!-- FIN DEL CAMBIO 2 -->
 
     <section id="nosotros_banner">
         <span class="titulo"><span style="color: #fff;">SOBRE </span><span style="color: #aa8c36;">NOSOTROS</span> </span>

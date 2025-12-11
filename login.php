@@ -1,3 +1,4 @@
+<!-- Importamos el head -->
 <?php
 include "./database.php";
 include "./head.php";

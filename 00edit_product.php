@@ -1,7 +1,4 @@
 <?php
-// Iniciar sesión para poder usar variables de sesión
-session_start();
-
 include "auth.php";
 verificarAdmin(); // solo admin accede
 
@@ -27,39 +24,14 @@ $filtro_producto = isset($_GET['filtro']) ? $_GET['filtro'] : '';
 // Variable para el producto a editar
 $producto_a_editar = null;
 
-// Leer mensaje de la URL
-$mensaje_url = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
-
-// Leer mensaje de sesión (para mostrar después de redirecciones)
-$mensaje_lista_productos = isset($_SESSION['mensaje_lista_productos']) ? $_SESSION['mensaje_lista_productos'] : '';
-$mostrar_lista_productos = isset($_SESSION['mostrar_lista_productos']) ? $_SESSION['mostrar_lista_productos'] : false;
-
-// Limpiar la sesión después de leer los mensajes
-unset($_SESSION['mensaje_lista_productos']);
-unset($_SESSION['mostrar_lista_productos']);
-
-// Si hay filtro en la URL, mostrar la lista automáticamente
-if (!empty($filtro_producto)) {
-    $mostrar_lista_productos = true;
-}
-
 // Lógica para MOSTRAR el formulario cuando se presiona el botón
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['accion'])) {
         if ($_POST['accion'] === 'cambiarContrasenia') {
             $mostrar_form_password = true;
-            // Limpiamos el mensaje de lista de productos
-            $mensaje_lista_productos = '';
         } elseif ($_POST['accion'] === 'nuevoProducto') {
             $mostrar_form_producto = true;
-            // Limpiamos el mensaje de lista de productos
-            $mensaje_lista_productos = '';
         } elseif ($_POST['accion'] === 'verProductos') {
-            $mostrar_lista_productos = true;
-            // Limpiamos el mensaje de lista de productos
-            $mensaje_lista_productos = '';
-        } elseif ($_POST['accion'] === 'filtrar_productos') {
-            $filtro_producto = isset($_POST['filtro']) ? $_POST['filtro'] : '';
             $mostrar_lista_productos = true;
         } elseif ($_POST['accion'] === 'editarProducto') {
             $mostrar_lista_productos = false;
@@ -306,10 +278,9 @@ if (isset($_POST['actualizar_producto'])) {
             }
 
             if ($stmt->execute()) {
-                // Guardamos el mensaje en sesión y indicamos que debe mostrar la lista
-                $_SESSION['mensaje_lista_productos'] = "Producto actualizado con éxito.";
-                $_SESSION['mostrar_lista_productos'] = true;
-                header("Location: dashboard.php");
+                $mensaje_lista_productos = "Producto actualizado con éxito.";
+                // Redirigimos al dashboard después de actualizar
+                header("Location: dashboard.php?mensaje=actualizado");
                 exit;
             } else {
                 $mensaje_lista_productos = "Error al actualizar el producto.";
@@ -378,24 +349,13 @@ include "head.php";
 
             <!-- Filtro de productos -->
             <div class="filtro-productos">
-                <form method="post" action="">
+                <form method="get" action="">
                     <input type="text" name="filtro" placeholder="Filtrar por nombre de producto..."
                         value="<?php echo htmlspecialchars($filtro_producto); ?>">
-                    <button type="submit" name="accion" value="filtrar_productos">Filtrar</button>
+                    <button type="submit">Filtrar</button>
                 </form>
             </div>
 
-            <?php
-            // Mostrar mensaje de la URL solo si estamos en la lista de productos
-            if ($mostrar_lista_productos && !empty($mensaje_url)) {
-                if ($mensaje_url === 'actualizado') {
-                    $mensaje_lista_productos = "Producto actualizado con éxito.";
-                }
-            ?>
-
-            <?php
-            }
-            ?>
             <!-- Mensaje de éxito o error -->
             <?php if (!empty($mensaje_lista_productos)): ?>
                 <div class="mensaje <?php echo strpos($mensaje_lista_productos, 'éxito') !== false ? 'exito' : 'error'; ?>">
@@ -438,14 +398,14 @@ include "head.php";
                                     <form method="post" style="display: inline; margin-right: 10px;">
                                         <input type="hidden" name="id_producto" value="<?php echo $producto['id']; ?>">
                                         <input type="hidden" name="accion" value="editarProducto">
-                                        <button type="submit" style="background: #03a008ff; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Editar</button>
+                                        <button type="submit" style="background: #4CAF50; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Editar</button>
                                     </form>
 
                                     <!-- FORMULARIO SEPARADO PARA ELIMINAR -->
                                     <form method="post" style="display: inline;">
                                         <input type="hidden" name="id_producto" value="<?php echo $producto['id']; ?>">
                                         <input type="hidden" name="accion" value="eliminarProducto">
-                                        <button type="submit" style="background: #b61206ff; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Eliminar</button>
+                                        <button type="submit" style="background: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
@@ -460,9 +420,8 @@ include "head.php";
     //  Lógica para INCLUIR el formulario de edición si la variable $mostrar_form_edicion es true
     if ($mostrar_form_edicion && $producto_a_editar) {
     ?>
-
-
-        <div class="contenido">
+        <div class="formulario-edicion">
+            <h2>Editar Producto</h2>
 
             <?php if (!empty($mensaje_lista_productos)): ?>
                 <div class="mensaje <?php echo strpos($mensaje_lista_productos, 'éxito') !== false ? 'exito' : 'error'; ?>">
@@ -470,51 +429,44 @@ include "head.php";
                 </div>
             <?php endif; ?>
 
-
             <form method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id_producto" value="<?php echo $producto_a_editar['id']; ?>">
+                <input type="hidden" name="accion" value="actualizar_producto">
 
-                <div class="add_productos">
+                <div class="form-group">
+                    <label for="nombre_producto">Nombre del Producto:</label>
+                    <input type="text" id="nombre_producto" name="nombre_producto"
+                        value="<?php echo htmlspecialchars($producto_a_editar['nombre_producto']); ?>" required>
+                </div>
 
-                    <h2>Editar Producto</h2>
-                    <input type="hidden" name="id_producto" value="<?php echo $producto_a_editar['id']; ?>">
-                    <input type="hidden" name="accion" value="actualizar_producto">
-
-                    <div class="form-group">
-                        <label for="nombre_producto">Nombre del Producto:</label>
-                        <input type="text" id="nombre_producto" name="nombre_producto"
-                            value="<?php echo htmlspecialchars($producto_a_editar['nombre_producto']); ?>" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="descripcion_producto">Descripción:</label>
-                        <textarea id="descripcion_producto" name="descripcion_producto" rows="4" required>
+                <div class="form-group">
+                    <label for="descripcion_producto">Descripción:</label>
+                    <textarea id="descripcion_producto" name="descripcion_producto" rows="4" required>
                         <?php echo htmlspecialchars($producto_a_editar['descripcion']); ?>
                     </textarea>
-                    </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="precio_producto">Precio:</label>
-                        <input type="number" id="precio_producto" name="precio_producto"
-                            value="<?php echo htmlspecialchars($producto_a_editar['precio']); ?>" step="0.01" required>
-                    </div>
+                <div class="form-group">
+                    <label for="precio_producto">Precio:</label>
+                    <input type="number" id="precio_producto" name="precio_producto"
+                        value="<?php echo htmlspecialchars($producto_a_editar['precio']); ?>" step="0.01" required>
+                </div>
 
-                    <div class="form-group">
-                        <label for="imagen_producto">Imagen (dejar en blanco si no quieres cambiarla):</label>
-                        <?php if ($producto_a_editar['imagen']): ?>
-                            <img src="uploads/productos/<?php echo htmlspecialchars($producto_a_editar['imagen']); ?>"
-                                alt="Producto actual" width="100">
-                        <?php endif; ?>
-                        <input type="file" id="imagen_producto" name="imagen_producto" accept="image/*">
-                    </div>
+                <div class="form-group">
+                    <label for="imagen_producto">Imagen (dejar en blanco si no quieres cambiarla):</label>
+                    <?php if ($producto_a_editar['imagen']): ?>
+                        <img src="uploads/productos/<?php echo htmlspecialchars($producto_a_editar['imagen']); ?>"
+                            alt="Producto actual" width="100">
+                    <?php endif; ?>
+                    <input type="file" id="imagen_producto" name="imagen_producto" accept="image/*">
+                </div>
 
-                    <div class="form-buttons">
-                        <button type="submit" name="actualizar_producto">Actualizar Producto</button>
-                        <button type="button" onclick="window.location.href='dashboard.php'">Cancelar</button>
-                    </div>
+                <div class="form-buttons">
+                    <button type="submit" name="actualizar_producto">Actualizar Producto</button>
+                    <button type="button" onclick="window.history.back()">Cancelar</button>
                 </div>
             </form>
         </div>
-
     <?php
     }
     ?>
