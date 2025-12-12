@@ -1,20 +1,25 @@
 <?php session_start(); ?>
 <nav>
-
     <div class="menu">
-        <a href="index.php"><img src="./img/coffeeshop.png" alt="Logo empresa" srcset=""></a>
-        <li>
-            <ul><a href="./index.php">INICIO</a></ul>
-            <ul><a href="./index.php#productos">PRODUCTOS</a></ul>
-            <ul><a href="./index.php#nosotros_banner">NOSOTROS</a></ul>
+        <a href="index.php">
+            <img src="./img/coffeeshop.png" alt="Logo empresa" srcset="">
+        </a>
+        <!-- Botón hamburguesa para móviles -->
+        <button class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="./index.php">INICIO</a></li>
+            <li><a href="./index.php#productos">PRODUCTOS</a></li>
+            <li><a href="./index.php#nosotros_banner">NOSOTROS</a></li>
             <?php if ($_SESSION['usuario_rol'] == 1): ?>
-                <ul><a href="./dashboard.php">DASHBOARD</a></ul>
-                <ul><a href="./logout.php">SALIR</a></ul>
+                <li><a href="./dashboard.php">DASHBOARD</a></li>
+                <li><a href="./logout.php">SALIR</a></li>
             <?php else: ?>
-                <ul><a href="./login.php">INGRESAR</a></ul>
+                <li><a href="./login.php">INGRESAR</a></li>
             <?php endif; ?>
-
-
-        </li>
+        </ul>
     </div>
 </nav>

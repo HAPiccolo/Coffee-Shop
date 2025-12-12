@@ -518,6 +518,39 @@ include "head.php";
     <?php
     }
     ?>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('show');
+                });
+
+                // Cerrar menú cuando se hace clic en un enlace
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('show');
+                    });
+                });
+
+                // Cerrar menú cuando se hace clic fuera
+                document.addEventListener('click', (e) => {
+                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
