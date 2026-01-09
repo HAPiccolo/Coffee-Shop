@@ -2,8 +2,8 @@
 // Archivo: database.php
 $host = 'localhost';
 $dbname = 'cafetera';
-$username = 'root';
-$password = 'noxon';
+$username = '';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
